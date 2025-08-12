@@ -1,0 +1,30 @@
+#Dataset criado com o script.py 
+project: "train_result"
+name: "result"
+epochs: 50
+imgsz: 640
+batch: 8
+device: 0
+freeze: 10
+verbose: False
+
+# hyp.yaml - hiper parâmetros e Augmentation moderada 
+# Geometric transformations
+flipud: 0.2          # 20% de chance de flip vertical
+fliplr: 0.5          # 50% de chance de flip horizontal
+degrees: 5           # rotação máxima de ±5°
+translate: 0.05      # deslocamento máximo de 5% (x/y)
+scale: 0.05          # variação de escala até ±5%
+shear: 1.0           # cisalhamento leve (±1°)
+
+# Color transformations
+hsv_h: 0.015         # mudança de matiz leve
+hsv_s: 0.4           # saturação até ±40%
+hsv_v: 0.3           # brilho até ±30%
+
+# Mosaic & Mixup (data augmentation avançada do YOLO)
+mosaic: 1.0          # sempre usar mosaic no início do treino
+mixup: 0.1           # 10% de chance de misturar imagens
+
+# Outros
+copy_paste: 0.0      # desativado para evitar falsos positivos
